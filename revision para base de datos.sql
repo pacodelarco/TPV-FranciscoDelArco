@@ -1,3 +1,12 @@
+create table empleado(
+	nombre varchar(30) not null,
+    nombreUsuario varchar(15) unique,
+    fotoUsuario blob,
+    activo boolean default false,
+    primary key(nombreUsuario)
+);
+
+
 create table racion(
 	tamaño enum('MEDIA','ENTERA'),
     precio float,
