@@ -1,3 +1,7 @@
+-- DAO
+drop database if exists tpv;
+create database tpv;
+use tpv;
 create table empleado(
 	nombre varchar(30) not null,
     nombreUsuario varchar(15) unique,
@@ -6,7 +10,7 @@ create table empleado(
     primary key(nombreUsuario)
 );
 
-
+-- clases de los productos
 create table racion(
 	tamaño enum('MEDIA','ENTERA'),
     precio float,
@@ -17,15 +21,15 @@ create table racion(
     primary key(nombre,restaurante)
 );
 
-create table restaurante)(...
 
-)
+-- clase del restaurante
+create table restaurante;
 
-insert into restaurante values("
-//En ventana, nada mas crearla lees el restaurante y su carta
+insert into restaurante values(
+-- En ventana, nada mas crearla lees el restaurante y su carta
 
-
-// Hay que hacer la base de datos de las clases: 
+);
+-- Hay que hacer la base de datos de las clases: 
 /*
 	- Empleados
 	- Todos los productos 

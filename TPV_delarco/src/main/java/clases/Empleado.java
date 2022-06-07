@@ -150,4 +150,10 @@ public class Empleado extends ElementoConNombre {
 		ConexionBD.desconectar();
 	}
 
+	@Override
+	public String toString() {
+		return "Empleado [nombreUsuario=" + nombreUsuario + ", contraseña=" + contraseña + ", fotoUsuario="
+				+ fotoUsuario + ", activo=" + activo + "]";
+	}
+
 }

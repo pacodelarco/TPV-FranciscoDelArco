@@ -2,6 +2,7 @@ package principal;
 
 import java.sql.SQLException;
 
+import interfacesGraficas.Ventana;
 import utils.CrearBD;
 
 public class Main {
@@ -18,10 +19,11 @@ public class Main {
 			CrearBD.crearBD();
 			CrearBD.crearTablas();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Tabla empleado ya esta creada");
 		}
 		
+		Ventana ventana=new Ventana(args);
+
 	}
 
 }

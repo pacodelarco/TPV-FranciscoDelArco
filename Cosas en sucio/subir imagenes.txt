@@ -1,0 +1,8 @@
+event mouse y que se abra el file chooser 
+
+cuidado si sales del file chooser y no has elegido nada
+
+if(no ha cogido nada){
+que no haga nada
+	Basicamente con un trycatch
+}
