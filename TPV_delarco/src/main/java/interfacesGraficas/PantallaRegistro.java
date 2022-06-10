@@ -8,6 +8,8 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PantallaRegistro extends JPanel{
 
@@ -23,24 +25,24 @@ public class PantallaRegistro extends JPanel{
 		setLayout(null);
 		
 		campoNombre = new JTextField();
-		campoNombre.setBounds(267, 155, 174, 19);
+		campoNombre.setBounds(267, 155, 179, 19);
 		add(campoNombre);
 		campoNombre.setColumns(10);
 		
 		JLabel usuarioLabel = new JLabel("Usuario:");
 		usuarioLabel.setForeground(Color.BLACK);
 		usuarioLabel.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 15));
-		usuarioLabel.setBounds(267, 185, 174, 19);
+		usuarioLabel.setBounds(267, 184, 174, 19);
 		add(usuarioLabel);
 		
 		JLabel contraseñaLabel = new JLabel("Contrase\u00F1a:");
 		contraseñaLabel.setForeground(Color.BLACK);
 		contraseñaLabel.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 15));
-		contraseñaLabel.setBounds(267, 246, 174, 19);
+		contraseñaLabel.setBounds(267, 240, 174, 19);
 		add(contraseñaLabel);
 		
 		campoContraseña = new JPasswordField();
-		campoContraseña.setBounds(267, 275, 174, 19);
+		campoContraseña.setBounds(267, 269, 179, 19);
 		add(campoContraseña);
 		
 		JLabel nombreLabel = new JLabel("Nombre:");
@@ -51,17 +53,19 @@ public class PantallaRegistro extends JPanel{
 		
 		campoUsuario = new JTextField();
 		campoUsuario.setColumns(10);
-		campoUsuario.setBounds(267, 214, 174, 19);
+		campoUsuario.setBounds(267, 213, 179, 19);
 		add(campoUsuario);
 		
-		JButton btnNewButton = new JButton("Registrar nuevo empleado");
-		btnNewButton.setBounds(267, 327, 174, 21);
+		JButton btnNewButton = new JButton("Registrar\n nuevo empleado");
+		btnNewButton.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 12));
+		btnNewButton.setBounds(267, 302, 179, 25);
 		add(btnNewButton);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(PantallaRegistro.class.getResource("/imagenes/pantallaLogin.png")));
-		lblNewLabel.setBounds(0, 0, 500, 500);
-		add(lblNewLabel);
+		JLabel fondoLabel = new JLabel("fondo");
+		fondoLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		fondoLabel.setIcon(new ImageIcon(PantallaRegistro.class.getResource("/image/pantallaLogin.png")));
+		fondoLabel.setBounds(0, 0, 500, 500);
+		add(fondoLabel);
 
 
 	}
