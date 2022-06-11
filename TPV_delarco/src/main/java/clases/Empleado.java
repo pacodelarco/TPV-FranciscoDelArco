@@ -15,9 +15,9 @@ public class Empleado extends ElementoConNombre {
 	private String nombreUsuario;
 	private String contraseña;
 	private BufferedImage fotoUsuario;
-	private boolean activo;
+	
 
-	public Empleado(String nombre, String nombreUsuario, String contraseña, BufferedImage fotoUsuario, boolean activo)
+	public Empleado(String nombre, String nombreUsuario, String contraseña, BufferedImage fotoUsuario)
 			throws SQLException, ContrasegnaInvalidaException {
 
 		super(nombre);
@@ -27,12 +27,12 @@ public class Empleado extends ElementoConNombre {
 		}
 		Statement smt = ConexionBD.conectar();
 		if (smt.executeUpdate("INSERT INTO Empleado VALUES('" + nombre + "','" + nombreUsuario + "','" + contraseña
-				+ "','" + fotoUsuario + "'," + activo + ")") > 0) {
+				+ "','" + fotoUsuario + ")") > 0) {
 			// Solo si todo ha ido bien insertando, se modifican las variables internas
 			this.nombreUsuario = nombreUsuario;
 			this.contraseña = contraseña;
 			this.fotoUsuario = fotoUsuario;
-			this.activo = activo;
+			
 		} else {
 			ConexionBD.desconectar();
 			throw new SQLException("Hubo un fallo al insertar los datos");
@@ -41,7 +41,7 @@ public class Empleado extends ElementoConNombre {
 
 	}
 
-	public Empleado(String nombre, String nombreUsuario, String contraseña, boolean activo) throws SQLException,
+	public Empleado(String nombre, String nombreUsuario, String contraseña ) throws SQLException,
 			ContrasegnaIncorrectaException, UsuarioNoExisteException, ContrasegnaInvalidaException {
 		super(nombre);
 
@@ -59,7 +59,6 @@ public class Empleado extends ElementoConNombre {
 				throw new ContrasegnaIncorrectaException("La contraseña no es correcta");
 			}
 			this.nombreUsuario = nombreUsuario;
-			this.activo = activo;
 		} else {
 			ConexionBD.desconectar();
 			throw new UsuarioNoExisteException("El usuario no existe o no se encuentra");
@@ -134,26 +133,12 @@ public class Empleado extends ElementoConNombre {
 		ConexionBD.desconectar();
 	}
 
-	public boolean isActivo() {
-		return activo;
-	}
-
-	public void setActivo(boolean activo) throws SQLException {
-		Statement smt = ConexionBD.conectar();
-		if (smt.executeUpdate(
-				"update usuarios set activo=" + activo + " where nombreUsuario='" + this.nombreUsuario + "'") > 0) {
-			this.activo = activo;
-		} else {
-			ConexionBD.desconectar();
-			throw new SQLException("No se ha podido cambiar el estado de activacion");
-		}
-		ConexionBD.desconectar();
-	}
+	
 
 	@Override
 	public String toString() {
 		return "Empleado [nombreUsuario=" + nombreUsuario + ", contraseña=" + contraseña + ", fotoUsuario="
-				+ fotoUsuario + ", activo=" + activo + "]";
+				+ fotoUsuario + "]";
 	}
 
 }

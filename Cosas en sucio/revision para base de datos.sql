@@ -21,6 +21,35 @@ create table racion(
     primary key(nombre,restaurante)
 );
 
+create table bocadillo(
+	tamaño enum('VIENA','PITUFO'),
+    precio float,
+    foto blob,
+    nombre varchar(100),
+    restaurante varchar(11),
+    foreign key (restaurante) references restaurante(cif),
+    primary key(nombre,restaurante)
+);
+
+create table bebida(
+	alcoholica boolean,
+    precio float,
+    foto blob,
+    nombre varchar(100),
+    restaurante varchar(11),
+    foreign key (restaurante) references restaurante(cif),
+    primary key(nombre,restaurante)
+);
+
+create table tapa(
+    precio float,
+    foto blob,
+    nombre varchar(100),
+    restaurante varchar(11),
+    foreign key (restaurante) references restaurante(cif),
+    primary key(nombre,restaurante)
+);
+
 
 -- clase del restaurante
 create table restaurante;
