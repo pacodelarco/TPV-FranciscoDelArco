@@ -48,8 +48,17 @@ public class PantallaLogin extends JPanel {
 		add(campoContraseña);
 
 		JButton loginButton = new JButton("Iniciar Sesi\u00F3n");
-		loginButton.setBounds(300, 351, 115, 21);
 		loginButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				v.irAPantalla("comanda");
+			}
+		});
+		loginButton.setBounds(300, 351, 115, 21);
+		
+		//PONER USER Y PASS POR ARGS
+
+		/*loginButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
@@ -63,7 +72,7 @@ public class PantallaLogin extends JPanel {
 				}
 
 			}
-		});
+		});*/
 		loginButton.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 12));
 		add(loginButton);
 
@@ -72,8 +81,9 @@ public class PantallaLogin extends JPanel {
 		RegistroButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
-				ventana.irAPantalla("registro");
+				v.irAPantalla("registro");
+			
+			
 			}
 		});
 		RegistroButton.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 12));

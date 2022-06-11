@@ -12,19 +12,18 @@ public class Ventana extends JFrame {
 	private String[] args;
 	private JPanel pantallaActual;
 
-
-	public Ventana(String[] args) {
+	public Ventana() {
 
 		this.setArgs(args);
 
-		this.setSize(500, 500);
+		this.setSize(500, 499);
 		this.setLocationRelativeTo(null);
-		this.setResizable(false);
+		this.setResizable(true);
 		this.setTitle("TPV Delarco");
 		this.setIconImage(new ImageIcon("./imagenes/iconoVentana.jpg").getImage());
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.pantallaActual = new PantallaLogin(this, args);
-		this.setContentPane(new PantallaLogin(this, this.getArgs()));
+		this.pantallaActual = new PantallaLogin(this, this.getArgs());
+		this.setContentPane(new PantallaLogin(this, args));
 		this.setVisible(true);
 
 	}
@@ -32,8 +31,8 @@ public class Ventana extends JFrame {
 	public void irAPantalla(String nombrePantalla) {
 
 		this.pantallaActual.setVisible(false);
-		this.pantallaActual = null;
-
+		this.pantallaActual.setLayout(null);
+		
 		switch (nombrePantalla) {
 		case "login":
 			this.pantallaActual = new PantallaLogin(this, this.getArgs());
@@ -41,14 +40,15 @@ public class Ventana extends JFrame {
 		case "registro":
 			this.pantallaActual = new PantallaRegistro(this);
 			break;
+		case "comanda":
+			this.pantallaActual = new PrincipalComanda(this);
+			this.setSize(915, 530);
+			break;
 		}
-		
-
-		this.pantallaActual.setVisible(true);
 		this.setContentPane(pantallaActual);
-		}
-
-	
+		this.pantallaActual.setVisible(true);
+		
+	}
 
 	public String[] getArgs() {
 		return args;

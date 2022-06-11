@@ -2,17 +2,14 @@ package clases;
 
 public class Restaurante extends ElementoConNombre {
 
-	private String cif;
-	private String direccion;
-	private int telefono;
+	private String cif = "12345678A";
+	private String direccion = "C/ Las Huertas, 12";
+	private int telefono = 952123123;
 	private Carta carta;
 	private Mesa[] mesa;
 
-	public Restaurante(String nombre, String cif, String direccion, int telefono, Carta carta, Mesa[] mesa) {
-		super(nombre);
-		this.cif = cif;
-		this.direccion = direccion;
-		this.telefono = telefono;
+	public Restaurante(String nombre, Carta carta, Mesa[] mesa) {
+		super(nombre="Restaurante Carola");
 		this.carta = carta;
 		this.mesa = mesa;
 	}
@@ -56,6 +53,8 @@ public class Restaurante extends ElementoConNombre {
 	public void setMesa(Mesa[] mesa) {
 		this.mesa = mesa;
 	}
+
+	
 
 	
 }

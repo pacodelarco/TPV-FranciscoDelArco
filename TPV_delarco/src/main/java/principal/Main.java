@@ -22,7 +22,7 @@ public class Main {
 			System.out.println("Tabla empleado ya esta creada");
 		}
 		
-		Ventana ventana=new Ventana(args);
+		Ventana ventana=new Ventana();
 
 	}
 
