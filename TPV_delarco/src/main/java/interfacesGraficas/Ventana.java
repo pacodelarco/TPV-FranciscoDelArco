@@ -5,11 +5,19 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-
+/**
+ * Clase Ventana. Es la clase de la que extienden todas las interfaces graficas que he creado
+ * @author fdelarco DAW
+ *
+ */
 public class Ventana extends JFrame {
 	private String[] args;
 	private JPanel pantallaActual;
 
+	/**
+	 * Funcion Ventana. Aqui definimos el estilo de la clase padre.
+	 * @param args vienen los argumentos que uso para el login
+	 */
 	public Ventana(String[] args) {
 
 		this.setArgs(args);
@@ -26,7 +34,12 @@ public class Ventana extends JFrame {
 
 	}
 
-	
+	/**
+	 * Funcion para navegar entre las interfaces
+	 * @param nombrePantalla. recibimos un string desde los elementos de las interfaces para 
+	 * hacer invisible la pantalla que este en ese momento para hacer visible la que nosotros hacemos 
+	 * que reciba por argumentos
+	 */
 	public void irAPantalla(String nombrePantalla) {
 
 		this.pantallaActual.setVisible(false);
