@@ -54,11 +54,18 @@ public class PantallaLogin extends JPanel {
 		add(campoContraseña);
 
 		JButton loginButton = new JButton("Iniciar Sesi\u00F3n");
+
 		loginButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				String nombreUsuario= campoUsuario.getText();
 				String contraseña=new String (campoContraseña.getPassword());
+				
+				if (nombreUsuario.length() <= 0 || contraseña.length() <= 0) {
+					nombreUsuario = args[0];
+					contraseña = args[1];
+
+				}
 				
 				try {
 					Empleado cargarUsuario=new Empleado(nombreUsuario, contraseña);
@@ -75,21 +82,7 @@ public class PantallaLogin extends JPanel {
 
 		// PONER USER Y PASS POR ARGS
 
-		loginButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-				String nombreUsuario = campoUsuario.getText();
-				String contraseña = new String(campoContraseña.getPassword());
-
-				if (nombreUsuario.length() == 0 || contraseña.length() == 0) {
-					nombreUsuario = args[0];
-					contraseña = args[1];
-
-				}
-
-			}
-		});
+		
 		loginButton.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 12));
 		add(loginButton);
 

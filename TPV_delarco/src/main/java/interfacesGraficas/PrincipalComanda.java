@@ -58,51 +58,51 @@ public class PrincipalComanda extends JPanel {
 		mesaXText.setBounds(65, 38, 148, 36);
 		add(mesaXText);
 
-		JButton elemButton1 = new JButton("New button");
+		JButton elemButton1 = new JButton("");
 		elemButton1.setBounds(301, 104, 138, 112);
 		add(elemButton1);
 
-		JButton elemButton2 = new JButton("New button");
+		JButton elemButton2 = new JButton("");
 		elemButton2.setBounds(449, 104, 138, 112);
 		add(elemButton2);
 
-		JButton elemButton3 = new JButton("New button");
+		JButton elemButton3 = new JButton("");
 		elemButton3.setBounds(595, 104, 138, 112);
 		add(elemButton3);
 
-		JButton elemButton4 = new JButton("New button");
+		JButton elemButton4 = new JButton("");
 		elemButton4.setBounds(740, 104, 138, 112);
 		add(elemButton4);
 
-		JButton elemButton5 = new JButton("New button");
+		JButton elemButton5 = new JButton("");
 		elemButton5.setBounds(301, 233, 138, 112);
 		add(elemButton5);
 
-		JButton elemButton6 = new JButton("New button");
+		JButton elemButton6 = new JButton("");
 		elemButton6.setBounds(449, 233, 138, 112);
 		add(elemButton6);
 
-		JButton elemButton7 = new JButton("New button");
+		JButton elemButton7 = new JButton("");
 		elemButton7.setBounds(595, 233, 138, 112);
 		add(elemButton7);
 
-		JButton elemButton8 = new JButton("New button");
+		JButton elemButton8 = new JButton("");
 		elemButton8.setBounds(740, 233, 138, 112);
 		add(elemButton8);
 
-		JButton elemButton9 = new JButton("New button");
+		JButton elemButton9 = new JButton("");
 		elemButton9.setBounds(301, 362, 138, 112);
 		add(elemButton9);
 
-		JButton elemButton10 = new JButton("New button");
+		JButton elemButton10 = new JButton("");
 		elemButton10.setBounds(449, 362, 138, 112);
 		add(elemButton10);
 
-		JButton elemButton11 = new JButton("New button");
+		JButton elemButton11 = new JButton("");
 		elemButton11.setBounds(595, 362, 138, 112);
 		add(elemButton11);
 
-		JButton elemButton12 = new JButton("New button");
+		JButton elemButton12 = new JButton("");
 		elemButton12.setBounds(740, 362, 138, 112);
 		add(elemButton12);
 		

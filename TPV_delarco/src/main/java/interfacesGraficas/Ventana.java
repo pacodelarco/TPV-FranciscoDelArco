@@ -10,7 +10,7 @@ public class Ventana extends JFrame {
 	private String[] args;
 	private JPanel pantallaActual;
 
-	public Ventana() {
+	public Ventana(String[] args) {
 
 		this.setArgs(args);
 

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public abstract class ConexionBD {
-	private final static String cadenaConexion = "jdbc:mysql://localhost:3306/tpv";
+	private final static String cadenaConexion = "jdbc:mysql://localhost:3306/tpv_";
 	private final static String usuarioBD = "root";
 	private final static String passwordBD = "user";
 	private static Connection conexion; // singleton
