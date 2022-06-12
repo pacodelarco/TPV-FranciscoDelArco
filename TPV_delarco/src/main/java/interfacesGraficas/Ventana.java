@@ -18,7 +18,7 @@ public class Ventana extends JFrame {
 
 		this.setSize(500, 499);
 		this.setLocationRelativeTo(null);
-		this.setResizable(true);
+		this.setResizable(false);
 		this.setTitle("TPV Delarco");
 		this.setIconImage(new ImageIcon("./imagenes/iconoVentana.jpg").getImage());
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -43,6 +43,7 @@ public class Ventana extends JFrame {
 		case "comanda":
 			this.pantallaActual = new PrincipalComanda(this);
 			this.setSize(915, 530);
+			this.setLocationRelativeTo(null);
 			break;
 		}
 		this.setContentPane(pantallaActual);
