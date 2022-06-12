@@ -25,8 +25,8 @@ public class Empleado extends ElementoConNombre {
 		if (!isValidPass(contraseña)) {
 			throw new ContrasegnaInvalidaException("La contraseña debe tener al menos 3 caracteres");
 		}
-		Statement smt = ConexionBD.conectar();
-		if (smt.executeUpdate("INSERT INTO empleado (nombre, nombreUsuario,contraseña,fotoUsuario) VALUES('" + nombre + "','" + nombreUsuario + "','" + contraseña+ "','" + fotoUsuario + "')") > 0) {
+		Statement stmt = ConexionBD.conectar();
+		if (stmt.executeUpdate("INSERT INTO empleado (nombre, nombreUsuario,contraseña,fotoUsuario) VALUES('" + nombre + "','" + nombreUsuario + "','" + contraseña+ "','" + fotoUsuario + "')") > 0) {
 			// Solo si todo ha ido bien insertando, se modifican las variables internas
 			this.nombreUsuario = nombreUsuario;
 			this.contraseña = contraseña;
@@ -42,16 +42,16 @@ public class Empleado extends ElementoConNombre {
 
 	}
 
-	public Empleado(String nombre, String nombreUsuario, String contraseña ) throws SQLException,
+	public Empleado( String nombreUsuario, String contraseña ) throws SQLException,
 			ContrasegnaIncorrectaException, UsuarioNoExisteException, ContrasegnaInvalidaException {
-		super(nombre);
+		super();
 
 		if (!isValidPass(contraseña)) {
 			throw new ContrasegnaInvalidaException("La contraseña debe tener al menos 3 caracteres");
 		}
 
-		Statement smt = ConexionBD.conectar();
-		ResultSet cursor = smt.executeQuery("SELECT * FROM empleado WHERE nombreUsuario='" + nombreUsuario + "'");
+		Statement stmt = ConexionBD.conectar();
+		ResultSet cursor = stmt.executeQuery("SELECT * FROM empleado WHERE nombreUsuario='" + nombreUsuario + "'");
 
 		if (cursor.next()) {
 			this.contraseña = cursor.getString("contraseña");
@@ -73,8 +73,8 @@ public class Empleado extends ElementoConNombre {
 	}
 
 	public void setNombreUsuario(String nombreUsuario) throws SQLException {
-		Statement smt = ConexionBD.conectar();
-		if (smt.executeUpdate("UPDATE empleado SET nombreUsuario='" + nombreUsuario + "' WHERE nombreUsuario='"
+		Statement stmt = ConexionBD.conectar();
+		if (stmt.executeUpdate("UPDATE empleado SET nombreUsuario='" + nombreUsuario + "' WHERE nombreUsuario='"
 				+ this.nombreUsuario + "'") > 0) {
 			this.nombreUsuario = nombreUsuario;
 		} else {
@@ -107,8 +107,8 @@ public class Empleado extends ElementoConNombre {
 			throw new ContrasegnaInvalidaException("La contraseña debe tener al menos 3 caracteres");
 		}
 
-		Statement smt = ConexionBD.conectar();
-		if (smt.executeUpdate("UPDATE empleado SET contraseña='" + contraseña + "' WHERE nombreUsuario='"
+		Statement stmt = ConexionBD.conectar();
+		if (stmt.executeUpdate("UPDATE empleado SET contraseña='" + contraseña + "' WHERE nombreUsuario='"
 				+ this.nombreUsuario + "'") > 0) {
 			this.contraseña = contraseña;
 		} else {
@@ -123,8 +123,8 @@ public class Empleado extends ElementoConNombre {
 	}
 
 	public void setFotoUsuario(BufferedImage fotoUsuario) throws SQLException {
-		Statement smt = ConexionBD.conectar();
-		if (smt.executeUpdate("UPDATE empleado SET fotoUsuario='" + fotoUsuario + "' WHERE nombreUsuario='"
+		Statement stmt = ConexionBD.conectar();
+		if (stmt.executeUpdate("UPDATE empleado SET fotoUsuario='" + fotoUsuario + "' WHERE nombreUsuario='"
 				+ this.nombreUsuario + "'") > 0) {
 			this.fotoUsuario = fotoUsuario;
 		} else {

@@ -2,17 +2,22 @@ package interfacesGraficas;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JTextField;
 
 import clases.Empleado;
+import excepciones.ContrasegnaIncorrectaException;
+import excepciones.ContrasegnaInvalidaException;
+import excepciones.UsuarioNoExisteException;
 
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Dimension;
@@ -52,7 +57,18 @@ public class PantallaLogin extends JPanel {
 		loginButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ventana.irAPantalla("mesa");
+				String nombreUsuario= campoUsuario.getText();
+				String contraseña=new String (campoContraseña.getPassword());
+				
+				try {
+					Empleado cargarUsuario=new Empleado(nombreUsuario, contraseña);
+					ventana.irAPantalla("mesa");
+
+				} catch (SQLException | ContrasegnaIncorrectaException | UsuarioNoExisteException
+						| ContrasegnaInvalidaException e1) {
+					JOptionPane.showMessageDialog(ventana, e1.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
 			}
 		});
 		loginButton.setBounds(300, 351, 115, 21);

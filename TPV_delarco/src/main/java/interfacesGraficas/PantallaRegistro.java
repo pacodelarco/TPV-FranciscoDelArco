@@ -9,6 +9,8 @@ import excepciones.ContrasegnaInvalidaException;
 import utils.ConexionBD;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -25,7 +27,7 @@ public class PantallaRegistro extends JPanel {
 	private Ventana ventana;
 	private JTextField campoNombre;
 	private JTextField campoUsuario;
-	private JTextField campoContraseña;
+	private JPasswordField campoContraseña;
 
 	public PantallaRegistro(Ventana v) {
 		this.ventana = v;
@@ -39,7 +41,7 @@ public class PantallaRegistro extends JPanel {
 			}
 		});
 		atrasButton.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 12));
-		atrasButton.setBounds(313, 337, 85, 21);
+		atrasButton.setBounds(309, 371, 85, 21);
 		add(atrasButton);
 
 		campoNombre = new JTextField();
@@ -76,24 +78,23 @@ public class PantallaRegistro extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				String nombre=campoNombre.getText();
 				String usuario=campoUsuario.getText();
-				String contraseña=campoContraseña.getText();
+				String contraseña=new String (campoContraseña.getPassword());
 				try {
 					Empleado nuevoEmpleado = new Empleado(nombre, usuario, contraseña, null);
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (ContrasegnaInvalidaException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					JOptionPane.showMessageDialog(ventana, "Registrado con éxito","Registro Completado",JOptionPane.PLAIN_MESSAGE);
+				
+					ventana.irAPantalla("login");
+				}catch (SQLException | ContrasegnaInvalidaException e1) {
+					JOptionPane.showMessageDialog(ventana, e1.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
 		btnNewButton.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 12));
-		btnNewButton.setBounds(256, 302, 201, 25);
+		btnNewButton.setBounds(258, 318, 201, 25);
 		add(btnNewButton);
 		
-		campoContraseña = new JTextField();
-		campoContraseña.setBounds(267, 273, 174, 19);
+		campoContraseña = new JPasswordField();
+		campoContraseña.setBounds(267, 273, 179, 19);
 		add(campoContraseña);
 		campoContraseña.setColumns(10);
 

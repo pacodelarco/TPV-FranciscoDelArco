@@ -19,7 +19,7 @@ public class Main {
 			CrearBD.crearBD();
 			CrearBD.crearTablas();
 		} catch (SQLException e) {
-			System.out.println("Tabla empleado ya esta creada");
+			System.out.println("Base de datos ya existe");
 		}
 		
 		Ventana ventana=new Ventana();

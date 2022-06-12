@@ -10,6 +10,10 @@ public abstract class ElementoConNombre {
 		this.nombre = nombre;
 	}
 
+	public ElementoConNombre() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
