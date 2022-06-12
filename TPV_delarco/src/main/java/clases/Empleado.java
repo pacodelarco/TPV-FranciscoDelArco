@@ -26,12 +26,13 @@ public class Empleado extends ElementoConNombre {
 			throw new ContrasegnaInvalidaException("La contraseña debe tener al menos 3 caracteres");
 		}
 		Statement smt = ConexionBD.conectar();
-		if (smt.executeUpdate("INSERT INTO Empleado VALUES('" + nombre + "','" + nombreUsuario + "','" + contraseña
-				+ "','" + fotoUsuario + ")") > 0) {
+		if (smt.executeUpdate("INSERT INTO empleado (nombre, nombreUsuario,contraseña,fotoUsuario) VALUES('" + nombre + "','" + nombreUsuario + "','" + contraseña+ "','" + fotoUsuario + "')") > 0) {
 			// Solo si todo ha ido bien insertando, se modifican las variables internas
 			this.nombreUsuario = nombreUsuario;
 			this.contraseña = contraseña;
 			this.fotoUsuario = fotoUsuario;
+			
+			System.out.println("Usuario registrado correctamente");
 			
 		} else {
 			ConexionBD.desconectar();

@@ -18,9 +18,10 @@ public class PrincipalComanda extends JPanel {
 
 	private Ventana ventana;
 
-	public PrincipalComanda(Ventana v) {
-		this.ventana = v;
 
+	public PrincipalComanda(Ventana v, byte mesa) {
+		this.ventana = v;
+	
 		setLayout(null);
 
 		JButton bocadilloButton = new JButton("BOCADILLO");
@@ -53,7 +54,7 @@ public class PrincipalComanda extends JPanel {
 		mesaXText.setEditable(false);
 		mesaXText.setFont(new Font("Microsoft PhagsPa", Font.BOLD | Font.ITALIC, 20));
 		mesaXText.setOpaque(false);
-		mesaXText.setText("Ticket Mesa X");
+		mesaXText.setText("Ticket Mesa "+mesa);
 		mesaXText.setBounds(65, 38, 148, 36);
 		add(mesaXText);
 
@@ -104,11 +105,11 @@ public class PrincipalComanda extends JPanel {
 		JButton elemButton12 = new JButton("New button");
 		elemButton12.setBounds(740, 362, 138, 112);
 		add(elemButton12);
-
-		JLabel fondoLabel = new JLabel("New label");
-		fondoLabel.setIcon(new ImageIcon(PrincipalComanda.class.getResource("/image/Comanda.png")));
-		fondoLabel.setBounds(0, 0, 900, 506);
-		add(fondoLabel);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(PrincipalComanda.class.getResource("/image/Comanda.png")));
+		lblNewLabel.setBounds(0, 0, 900, 506);
+		add(lblNewLabel);
 
 		// LISTENERS//
 		bebidaButton.addMouseListener(new MouseAdapter() {

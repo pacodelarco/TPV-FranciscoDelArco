@@ -1,21 +1,21 @@
 package interfacesGraficas;
 
 import javax.swing.JPanel;
-import java.awt.GridBagLayout;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
-import java.awt.GridBagConstraints;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JTextField;
+
+import clases.Empleado;
+
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Dimension;
 
 public class PantallaLogin extends JPanel {
 	private Ventana ventana;
@@ -23,7 +23,8 @@ public class PantallaLogin extends JPanel {
 	private JPasswordField campoContraseña;
 
 	public PantallaLogin(Ventana v, String[] args) {
-		this.ventana=v;
+
+		this.ventana = v;
 		setLayout(null);
 
 		JLabel usuarioLabel = new JLabel("Usuario:");
@@ -51,14 +52,14 @@ public class PantallaLogin extends JPanel {
 		loginButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				v.irAPantalla("comanda");
+				ventana.irAPantalla("mesa");
 			}
 		});
 		loginButton.setBounds(300, 351, 115, 21);
-		
-		//PONER USER Y PASS POR ARGS
 
-		/*loginButton.addMouseListener(new MouseAdapter() {
+		// PONER USER Y PASS POR ARGS
+
+		loginButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
@@ -72,26 +73,25 @@ public class PantallaLogin extends JPanel {
 				}
 
 			}
-		});*/
+		});
 		loginButton.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 12));
 		add(loginButton);
 
-		JButton RegistroButton = new JButton("Registrarse");
-		RegistroButton.setBounds(300, 320, 115, 21);
-		RegistroButton.addMouseListener(new MouseAdapter() {
+		JButton registrarseButton = new JButton("Registrarse");
+		registrarseButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				v.irAPantalla("registro");
-			
-			
+				ventana.irAPantalla("registro");
+
 			}
 		});
-		RegistroButton.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 12));
-		add(RegistroButton);
+		registrarseButton.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 12));
+		registrarseButton.setBounds(300, 382, 115, 21);
+		add(registrarseButton);
 
 		JLabel fondoLabel = new JLabel("New label");
-		fondoLabel.setBounds(0, 0, 500, 500);
 		fondoLabel.setIcon(new ImageIcon(PantallaLogin.class.getResource("/image/pantallaLogin.png")));
+		fondoLabel.setBounds(0, 0, 500, 500);
 		add(fondoLabel);
 
 	}

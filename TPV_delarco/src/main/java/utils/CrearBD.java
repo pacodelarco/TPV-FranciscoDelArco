@@ -13,13 +13,11 @@ public class CrearBD {
 
 	public static void crearBD() throws SQLException {
 		try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-				Statement smt = conn.createStatement();) {
+				Statement stmt = conn.createStatement();) {
 
 			String sql = "create database tpv;";
-			smt.executeUpdate(sql);
-			// smt.executeUpdate("DROP DATABASE IF EXISTS tpv");
-			// smt.executeUpdate("CREATE DATABASE tpv");
-			// smt.executeUpdate("USE tpv");
+			stmt.executeUpdate(sql);
+
 
 			System.out.println("Base de datos creada con exito");
 		} catch (Exception e) {
@@ -30,7 +28,7 @@ public class CrearBD {
 	public static void crearTablas() throws SQLException {
 		Statement smt = ConexionBD.conectar();
 
-		smt.executeUpdate("CREATE TABLE `empleado` ( `nombre` varchar(30) NOT NULL, nombreUsuario` varchar(15) NOT NULL, `contraseña` varchar(20) NOT NULL, `fotoUsuario` blob, PRIMARY KEY (`nombreUsuario`), UNIQUE KEY `nombreUsuario` (`nombreUsuario`);");
+		smt.executeUpdate("CREATE TABLE empleado (nombre varchar(30) NOT NULL, nombreUsuario varchar(15) NOT NULL, contraseña varchar(30) NOT NULL,  fotoUsuario blob, PRIMARY KEY (nombreUsuario), UNIQUE KEY nombreUsuario (nombreUsuario)) ");
 		// Y aqui las demas tablas
 // CREATE TABLE `empleado` ( `nombre` varchar(30) NOT NULL, nombreUsuario` varchar(15) NOT NULL, `contraseña` varchar(20) NOT NULL, `fotoUsuario` blob, PRIMARY KEY (`nombreUsuario`), UNIQUE KEY `nombreUsuario` (`nombreUsuario`);
 		ConexionBD.desconectar();
